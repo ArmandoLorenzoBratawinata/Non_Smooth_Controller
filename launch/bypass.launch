@@ -1,0 +1,13 @@
+<launch>
+
+        <arg name="paused" default="true"/>
+        
+        <include file="$(find twil_description)/launch/gazebo.launch">
+        <arg name="paused" value="$(arg paused)"/>
+        </include>
+        
+        <rosparam file="$(find nonsmooth_controller)/config/bypass.yaml" command="load"/>
+        <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/mob" args="left_wheel_joint_effort_controller right_wheel_joint_effort_controller joint_state_controller"/>
+
+
+</launch>

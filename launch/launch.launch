@@ -1,0 +1,11 @@
+<launch>
+        <arg name="controller" default="dynamics_linearizing_controller"/>
+        
+        <include file="$(find twil_bringup)/launch/gazebo.launch" >
+                <arg name="controller" value="$(arg controller)"/>
+        </include> 
+          
+        <node name="aaaa" pkg="nonsmooth_controller" type="nonsmooth" />   
+        
+</launch>
+        
